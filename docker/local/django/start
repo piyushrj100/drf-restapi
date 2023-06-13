@@ -1,0 +1,14 @@
+#!bin/bash
+
+#script will fail and exit if any command fails
+set -o errexit
+
+# script will fail and exit when a pipe comamnd fails
+set -o pipefail
+
+#exit when uninitialised variable is used
+set -o nounset
+
+python manage.py migrate --no-input
+python manage.py collectstatic --no-input
+exec python manage.py  runserver 0.0.0.0:8000
