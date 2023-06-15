@@ -6,7 +6,7 @@ services:
         context: .
         dockerfile: ./docker/local/django/Dockerfile
       volumes:
-          - .:/app:z
+          - .:/app
           - static_volume:/app/staticfiles
           - media_volume:/app/mediafiles
       ports:
